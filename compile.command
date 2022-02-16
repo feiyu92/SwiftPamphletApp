@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export LANG=zh_CN.UTF-8
-
 set -ex
 
 # cd script dir
@@ -9,7 +7,7 @@ cd "$(dirname "$0")" || exit
 
 GIT_ROOT=$(pwd)
 
-rm -rf build 戴铭的Swift小册子.app
+rm -rf build '戴铭的Swift小册子.app'
 cd SwiftPamphletApp
 if grep -q 'gitHubAccessToken = ""' ./SwiftPamphletAppConfig.swift ; then
     echo "please setup your personal access token to SwiftPamphletAppConfig.swift" && exit
@@ -25,4 +23,4 @@ xcodebuild -project "$GIT_ROOT/SwiftPamphletApp.xcodeproj" \
  CODE_SIGNING_REQUIRED=NO \
  CODE_SIGN_IDENTITY="" \
 
-cp -R $GIT_ROOT/build/Build/Products/Release/戴铭的Swift小册子.app $GIT_ROOT
+cp -R '${GIT_ROOT}/build/Build/Products/Release/戴铭的Swift小册子.app' $GIT_ROOT
