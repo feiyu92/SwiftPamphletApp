@@ -12,7 +12,6 @@ jobs:
         uses: snickerbockers/submodules-init@v4
       - name: Import PAT from Actions secrets
         run: |
-         export LC_ALL="zh_CN.UTF-8"
          cd SwiftPamphletApp
          sed -i '' s/'gitHubAccessToken = ""'/'gitHubAccessToken = "${{ secrets.PAT }}"'/ SwiftPamphletAppConfig.swift
          cd ..
